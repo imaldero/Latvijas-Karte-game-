@@ -1,10 +1,12 @@
 const waypoints = document.querySelectorAll("circle");
+const revealer = document.querySelector(".revealer");
 
 let score = document.querySelector("h1");
 
 let currentScore = 0;
 
 waypoints.forEach((el) => {
+  el.classList.add(`hidden`);
   el.addEventListener(`click`, (e) => {
     const searchID = el.id.replaceAll(" ", "_");
     currentScore++;
@@ -13,6 +15,18 @@ waypoints.forEach((el) => {
     const placeCard = document.querySelector(`#${searchID}`);
     placeCard.remove();
   });
+});
+
+revealer.addEventListener(`click`, (e) => {
+  if (revealer.checked === true) {
+    waypoints.forEach((el) => {
+      el.classList.remove(`hidden`);
+    });
+  } else if (revealer.checked === false) {
+    waypoints.forEach((el) => {
+      el.classList.add(`hidden`);
+    });
+  }
 });
 
 //
