@@ -6,13 +6,14 @@ body {
   box-sizing: border-box;
   background: #1d4ed8;
   font-family: "Roboto", sans-serif;
+  height: 100%;
 }
 * {
   overflow: hidden;
 }
 
 .container {
-  margin-top: 170px;
+  margin-top: 90px;
   overflow: auto;
 }
 
@@ -29,7 +30,7 @@ header {
 }
 
 img {
-  height: 100px;
+  height: 4rem;
   border-radius: 8px;
 }
 
@@ -40,8 +41,8 @@ path {
 
 svg {
   z-index: 1;
-  width: auto;
-  width: auto;
+  width: 25rem;
+  width: 25rem;
 }
 
 .zoom {
@@ -63,6 +64,7 @@ svg {
   display: flex;
   gap: 20px;
   padding: 20px 20px 0 20px;
+  flex-wrap: wrap;
 }
 
 .place {
