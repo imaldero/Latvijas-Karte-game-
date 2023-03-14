@@ -4,26 +4,29 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #1d4ed8;
+  background: #1e3a8a;
   font-family: "Roboto", sans-serif;
   height: 100%;
-}
-* {
-  overflow: hidden;
+  width: 100%;
+  overflow: auto;
+  display: flex;
 }
 
 .container {
-  margin-top: 90px;
-  overflow: auto;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0;
 }
 
 header {
-  z-index: 2;
-  position: fixed;
+  position: static;
   top: 0;
-  background-color: #bae6fd;
-  width: 100%;
+  background-color: #3b82f6;
+  width: 20%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -35,19 +38,15 @@ img {
   border-radius: 8px;
 }
 
-path {
-  stroke: white;
-  stroke-width: 1;
-}
-
 svg {
-  fill: #0c4a6e;
-  z-index: 1;
-  width: 70%;
-  width: 70%;
+  position: static;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+  width: 90%;
 }
 
-.zoom {
+/* .zoom {
   height: 100%;
   width: 100%;
   display: grid;
@@ -60,13 +59,16 @@ svg {
 
 .zoom:active {
   cursor: grabbing;
-}
+} */
 
 .row {
   display: flex;
   gap: 20px;
   padding: 20px 20px 0 20px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .place {
@@ -78,6 +80,7 @@ svg {
 
 h3 {
   margin-top: 5px;
+  text-align: center;
 }
 
 .revealer {
