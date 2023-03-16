@@ -46,6 +46,19 @@ svg {
   width: 90%;
 }
 
+svg *:not(line) {
+  animation: fade 3s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* .zoom {
   height: 100%;
   width: 100%;
