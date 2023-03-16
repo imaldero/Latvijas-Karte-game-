@@ -4,12 +4,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #1e3a8a;
+  background: #94a3b8;
   font-family: "Roboto", sans-serif;
   height: 100%;
   width: 100%;
   overflow: auto;
   display: flex;
+  color: whitesmoke;
 }
 
 .container {
@@ -23,7 +24,7 @@ body {
 header {
   position: static;
   top: 0;
-  background-color: #3b82f6;
+  background-color: #475569;
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -46,7 +47,7 @@ svg {
   width: 90%;
 }
 
-svg *:not(line) {
+svg *:not(line, circle) {
   animation: fade 3s ease;
 }
 
@@ -87,6 +88,10 @@ svg *:not(line) {
   user-select: none;
 }
 
+.row * {
+  animation: fade 3s ease;
+}
+
 .place {
   display: flex;
   flex-direction: column;
@@ -125,4 +130,8 @@ h3 {
 
 h1 {
   font-size: 5rem;
+}
+
+#main_bg {
+  fill: #0f172a;
 }
