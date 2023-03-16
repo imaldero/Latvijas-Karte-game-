@@ -39,7 +39,6 @@ const handleVietas = function (arr) {
         const index = vietas.indexOf(`${localStorage.getItem(`currName`)}`);
         vietas.splice(index, 1);
         startGame(vietas);
-        console.log(vietas);
       }
     });
   });

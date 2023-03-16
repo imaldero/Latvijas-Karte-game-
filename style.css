@@ -89,7 +89,7 @@ svg *:not(line, circle) {
 }
 
 .row * {
-  animation: fade 3s ease;
+  animation: fade 2s ease;
 }
 
 .place {
