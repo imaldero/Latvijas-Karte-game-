@@ -1,6 +1,27 @@
 const waypoints = document.querySelectorAll("circle");
 const pilsetas = document.querySelectorAll(`.pilseta`);
 const revealer = document.querySelector(".revealer");
+const lines = document.querySelectorAll(`path`);
+
+lines.forEach((e) => {
+  const lineLength = e.getTotalLength();
+  e.style.strokeDasharray = lineLength;
+  e.style.strokeDashoffset = lineLength;
+  e.style.animation = `draw 4s ease`;
+  e.style.animationFillMode = `forwards`;
+});
+const vietas = [
+  `Vitols`,
+  `Gulbene`,
+  `Darzins`,
+  `Rainis`,
+  `Liepaja`,
+  `Skrunda`,
+  `Sigulda`,
+  `Jelgava`,
+  `Ventspils`,
+  `Igate`,
+];
 
 let score = document.querySelector("h1");
 
@@ -8,15 +29,18 @@ let currentScore = 0;
 
 const handleVietas = function (arr) {
   arr.forEach((el) => {
-    if (el.tagName === `circle`) el.classList.add("hidden");
     el.addEventListener(`click`, (e) => {
-      if (currentScore === 10) return;
-      const searchID = el.id;
-      currentScore++;
-      score.textContent = currentScore + ` /10`;
-      if (el.tagName === `circle`) el.remove();
-      const placeCard = document.querySelector(`#${searchID}`);
-      placeCard.remove();
+      if (el.id === localStorage.getItem(`currName`) + `_map`) {
+        if (currentScore === 10) return;
+        if (el.tagName === `circle`) el.remove();
+        document.querySelector(`#${localStorage.getItem(`currName`)}`).remove();
+        currentScore++;
+        score.textContent = `${currentScore}/10`;
+        const index = vietas.indexOf(`${localStorage.getItem(`currName`)}`);
+        vietas.splice(index, 1);
+        startGame(vietas);
+        console.log(vietas);
+      }
     });
   });
 };
@@ -35,3 +59,14 @@ revealer.addEventListener(`click`, (e) => {
     });
   }
 });
+
+const startGame = function (arr) {
+  if (currentScore === 10) return;
+  const nr = Math.floor(Math.random() * arr.length);
+  const currentName = arr[nr];
+  localStorage.setItem(`currName`, `${currentName}`);
+  const currentCard = document.querySelector(`#${currentName}`);
+  currentCard.classList.remove(`gone`);
+};
+
+startGame(vietas);
